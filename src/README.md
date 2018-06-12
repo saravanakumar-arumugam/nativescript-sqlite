@@ -6,7 +6,7 @@ A NativeScript module providing sqlite actions for Android (and iOS in future).
 Mastertech Technologies [Nathanael Anderson]
 
 ## Rewritten in Typescript by
-[![Saravana Kumar Arumugam](https://https://lh3.googleusercontent.com/-1UBd9gpygI8/AAAAAAAAAAI/AAAAAAAAAFQ/eaeSRJyn1hQ/s60-p-rw-no-il/photo.jpg)](https://plus.google.com/u/0/+SaravanaKumarAO)
+[![Saravana Kumar Arumugam](https://lh3.googleusercontent.com/-1UBd9gpygI8/AAAAAAAAAAI/AAAAAAAAAFQ/eaeSRJyn1hQ/s60-p-rw-no-il/photo.jpg)](https://plus.google.com/u/0/+SaravanaKumarAO)
 
 ## License
 
@@ -14,7 +14,7 @@ The license this is released under;
 
 [![npm](https://img.shields.io/npm/l/nativescript-sqlite.svg?style=plastic)](https://github.com/sdon2/nativescript-sqlite)
 
-[NOTE: Original version is relesed under MIT and Commercial licenses]
+[NOTE: Original version is released under MIT and Commercial licenses]
 
 
 ### NativeScript-Sqlite Free version
