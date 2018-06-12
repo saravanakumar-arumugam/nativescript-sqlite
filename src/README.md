@@ -1,49 +1,25 @@
-[![npm](https://img.shields.io/npm/v/nativescript-sqlite.svg)](https://www.npmjs.com/package/nativescript-sqlite)
-[![npm](https://img.shields.io/npm/dt/nativescript-sqlite.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-sqlite)
-[![Twitter Follow](https://img.shields.io/twitter/follow/congocart.svg?style=social&label=Follow%20me)](https://twitter.com/congocart)
-
-
 # NativeScript sqlite
 
-A NativeScript module providing sqlite actions for Android and iOS.
+A NativeScript module providing sqlite actions for Android (and iOS in future).
 
-## Developed by
+## Originally Developed by
 [![MasterTech](https://plugins.nativescript.rocks/i/mtns.png)](https://plugins.nativescript.rocks/mastertech-nstudio)
 
+## Rewritten in Typescript by
+[![Saravana Kumar Arumugam](https://https://lh3.googleusercontent.com/-1UBd9gpygI8/AAAAAAAAAAI/AAAAAAAAAFQ/eaeSRJyn1hQ/s60-p-rw-no-il/photo.jpg)](https://plus.google.com/u/0/+SaravanaKumarAO)
 
 ## License
 
-There are two possible licenses this is released under;
+The license this is released under;
 
-[![npm](https://img.shields.io/npm/l/nativescript-sqlite.svg?style=plastic)](https://www.npmjs.com/package/nativescript-sqlite)
-![license](https://img.shields.io/badge/license-Commercial-blue.svg?style=plastic)
+[![npm](https://img.shields.io/npm/l/nativescript-sqlite.svg?style=plastic)](https://github.com/sdon2/nativescript-sqlite)
+
+[NOTE: Original version is relesed under MIT and Commercial licenses]
 
 
 ### NativeScript-Sqlite Free version
 
-This is released under the MIT License, meaning you are free to include this in any type of program -- However for entities that need a support contract, changes, enhancements and/or a commercial license please see [http://nativescript.tools](http://nativescript.tools/product/10)
-
-[![Donate](https://img.shields.io/badge/Donate-PayPal-brightgreen.svg?style=plastic)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=HN8DDMWVGBNQL&lc=US&item_name=Nathanael%20Anderson&item_number=nativescript%2dsqlite&no_note=1&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3ax%3aNonHosted)
-[![Patreon](https://img.shields.io/badge/Pledge-Patreon-brightgreen.svg?style=plastic)](https://www.patreon.com/NathanaelA)
-
-
-### NativeScript-SQLite Commercial/Encrypted Version
-This is released under a commercial license, allowing you to use the commercial version of the plugin in your projects.
-
-The [commercial version](http://nativescript.tools/product/10) comes with the following enhancements:
-- TypeScript definitions
-- Totally backwards compatible with the free version
-- Prepared statements
-- Multilevel transaction support
-- Encryption
-- Full source code
-- (Coming soon) Multi-threading
-
-Note: On iOS when installing the encryption, you **might** have to delete the following file:
-`node_modules/nativescript-sqlite/platforms/ios/module.modulemap`.
-This file is REQUIRED for normal un-encrypted sqlite; but it can conflict with encryption on some versions of XCode.  When you run the app; if you get a console line about encryption not being linked in; then this is the cause. 
-
-
+This is released under the MIT License, meaning you are free to include this in any type of program.
 
 ## Example Application
 
@@ -52,10 +28,6 @@ To use you need to do:
 1. `npm install tns-core-modules`
 2. `tns platform add ios` or `tns platform add android`
 3. `tns plugin add nativescript-sqlite`
-
-***optional***
-* `tns plugin add nativescript-sqlite-commercial`
-* `tns plugin add nativescript-sqlite-encrypted`
 
 Then run the app the normal way you would.
 
@@ -113,11 +85,6 @@ If you are planning on shipping a database with the application; drop the file i
 * Sqlite.VALUESARENATIVE - Returns the values as the native values; i.e. Integer = Integer, Float = Number
 * Sqlite.VALUESARESTRINGS - Returns all the values as a string; so the Integer 1 would be returned as "1"
 
-
-* Sqlite.HAS_COMMERCIAL - will be true if commercial library is loaded.
-* Sqlite.HAS_ENCRYPTION - will be true if encryption library is loaded.
-* Sqlite.HAS_THREADING - will be true if multithreading library is loaded.
-
 ### Methods
 #### new Sqlite(dbname, options, callback)
 ##### Parameters
@@ -126,7 +93,7 @@ If you are planning on shipping a database with the application; drop the file i
   * "readOnly", which if set to true will make the db read only when it opens it
   * "key", used for opening encrypted databases (See Encryption at bottom of document)
 * (optional) callback (error, db): db is the fully OPEN database object that allows interacting with the db.
-* RETURNS: promise of the DB object
+* RETURNS: DB object
 
  You should choose either to use a promise or a callback; you can use whichever you are most comfortable with -- however, as with this example, you CAN use both if you want; but side effects WILL occur with some functions.
 
@@ -333,87 +300,3 @@ promise.then(function (count) {
   console.log("Rows displayed:", count); // Prints 100  (Assuming their are a 100 rows found)
 });
 ```
-
-
-
-## Commercial Only Features
-
-#### To enable the optional features
-
-To enable encryption: `tns plugin add nativescript-sqlite-encrypted-1.0.0.tgz`
-
-To enable commercial: `tns plugin add nativescript-sqlite-commercial-1.0.0.tgz`
-
-
-### Encryption Support
-Pass the encryption key into database open function using the `options.key` and it will be applied.  Please note the database itself MUST be created with encryption to use encryption.  So if you create a plain database, you can not retroactively add encryption to it.
-
-Note: Enabling Encryption adds about 3 megs to the size to the application APK on android and about 2 megs to a iOS application.  
-    
-
-### Prepared Queries
-#### DB.prepare(SQL) 
-##### Parameter:
-* SQL Statement
-* Returns Prepared Statement
-
-#### PREPAREDSTATEMENT.execute(param1, param2, param3, optional_callback)
-#### PREPAREDSTATEMENT.execute([param1, param2, param3], optional_callback)
-#### PREPAREDSTATEMENT.execute([ [ p1, p2, p3], [p1, p2, p3], ...], optional_callback)
-###### Parameters:
-* Pass in values, Array of values, or Array of Arrays
-* Pass in an optional callback last for when finished.
-* Returns a Promise
-
-#### PREPAREDSATEMENT.finished()
-* Cleans up and destroys this prepared statement.  Use when you are all done with the prepared statement. 
-
-```js
-var prep = db.prepare('insert into names (first, last) values (?,?)');
-for (var i=0;i<10;i++) {
-	prep.execute(["Name", i]);
-}
-prep.finished();
-```
-
-
-### Transactions
-#### DB.begin()
-##### Parameters
-* callback (Optional)
-* RETURNS promise
-This starts a new transactions, if you start a nested transaction, until you commit the first transaction nothing is written.
-
-#### DB.commit()
-##### Parameters
-* callback (Optional)
-* RETURNS promise
-This commits a single transaction, if this is a nested transaction; the changes are not written until the first/final transaction is committed.
-
-#### DB.commitAll()
-##### Parameters
-* callback (Optional)
-* RETURNS promise
-This commits the entire transaction group, everything is written and any open transactions are committed.
-
-#### DB.rollback()
-##### Parameters
-* callback (Optional)
-* RETURNS promise
-This rolls back a single transaction, if this is a nested transaction; only the outermost nested transaction is rolled back.
-
-#### DB.rollbackAll()
-##### Parameters
-* callback (Optional)
-* RETURNS promise
-This rolls back the entire transaction group; everything is cancelled.
-
-
-## Tutorials
-
-Need a little more to get started?  Check out these tutorials for using SQLite in a NativeScript Android and iOS application.
-
-* [SQLite in a NativeScript Angular Application](https://www.thepolyglotdeveloper.com/2016/10/using-sqlite-in-a-nativescript-angular-2-mobile-app/)
-* [SQLite in a NativeScript Vanilla Application](https://www.thepolyglotdeveloper.com/2016/04/use-sqlite-save-data-telerik-nativescript-app/)
-
-
