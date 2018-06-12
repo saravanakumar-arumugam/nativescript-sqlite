@@ -3,7 +3,7 @@
 A NativeScript module providing sqlite actions for Android (and iOS in future).
 
 ## Originally Developed by
-[![MasterTech](https://plugins.nativescript.rocks/i/mtns.png)](https://plugins.nativescript.rocks/mastertech-nstudio)
+Mastertech Technologies [Nathanael Anderson]
 
 ## Rewritten in Typescript by
 [![Saravana Kumar Arumugam](https://https://lh3.googleusercontent.com/-1UBd9gpygI8/AAAAAAAAAAI/AAAAAAAAAFQ/eaeSRJyn1hQ/s60-p-rw-no-il/photo.jpg)](https://plus.google.com/u/0/+SaravanaKumarAO)
