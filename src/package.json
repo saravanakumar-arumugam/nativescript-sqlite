@@ -1,0 +1,49 @@
+{
+  "name": "nativescript-sqlite",
+  "version": "1.0.0",
+  "description": "A sqlite NativeScript module for Android and iOS",
+  "main": "sqlite",
+  "nativescript": {
+    "platforms": {
+      "android": "1.4.0",
+      "ios": "1.4.0"
+    },
+    "plugin": {
+      "nan": "true",
+      "pan": "true",
+      "core3": "true",
+      "core4": "true",
+      "vue": "true",
+      "category": "Database"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sdon2/nativescript-sqlite.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "SQL",
+    "SQLite",
+    "Database",
+    "DB",
+    "iOS",
+    "Android",
+    "JavaScript"
+  ],
+  "author": {
+    "name": "Saravanakumar Arumugam",
+    "email": "saravanakumar.a.o@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sdon2/nativescript-sqlite/issues"
+  },
+  "homepage": "https://github.com/sdon2/nativescript-sqlite",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "tns-core-modules": "^4.1.0",
+    "typescript": "^2.9.1"
+  }
+}

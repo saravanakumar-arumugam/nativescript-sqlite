@@ -1,0 +1,31 @@
+import { RESULT_TYPE } from "./dbresult";
+export declare class Sqlite {
+    private static self;
+    readonly _dbname: string;
+    private _db;
+    private _isOpen;
+    private _isSqlite;
+    private _options;
+    private _resultType;
+    private _valuesType;
+    constructor(dbname: string, options?: {});
+    _error(message: string): null;
+    openDatabase(): Promise<any>;
+    private _openDatabase;
+    private _getResultEngine;
+    version(valueOrCallback: number | Function): void;
+    isOpen(): boolean;
+    private _toStringArray;
+    resultType(type: RESULT_TYPE): RESULT_TYPE;
+    valueType(type: RESULT_TYPE): RESULT_TYPE;
+    close(): Promise<any>;
+    get(sql: string, params?: {}, callback?: Function, mode?: RESULT_TYPE): Promise<any>;
+    execSQL(sql: string, params?: {}): Promise<any>;
+    all(sql: string, params?: {} | Function, callback?: Function): Promise<any>;
+    each(sql: string, params?: {} | Function, callback?: Function, complete?: Function): Promise<any>;
+    isSqlite(obj: any): any;
+    static _getContext(): any;
+    static exists(dbname: string): boolean;
+    static deleteDatabase(dbname: string): void;
+    static copyDatabase(dbname: string): boolean;
+}

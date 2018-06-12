@@ -1,0 +1,15 @@
+demo/
+changelog.
+contributors.md
+sqlite.android.ts
+dbresult.ts
+cursor.ts
+dbresult.d.ts
+cursor.d.ts
+sqlite.android.d.ts
+tsconfig.json
+tslint.json
+.git/
+*.tgz
+*.tar
+*.stackdump
