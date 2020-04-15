@@ -6,7 +6,7 @@ A NativeScript module providing sqlite actions for Android (and iOS in future).
 Mastertech Technologies [Nathanael Anderson]
 
 ## Rewritten in Typescript by
-[![Saravana Kumar Arumugam](https://drive.google.com/uc?export=view&id=1spiWq5jsNspsiJsWZeVxXzLda4NhVTGa)](mailto:saravanakumar.a.o@gmail.com)
+[![Saravanakumar Arumugam](https://drive.google.com/uc?export=view&id=1spiWq5jsNspsiJsWZeVxXzLda4NhVTGa)](mailto:saravanakumar.a.o@gmail.com)
 
 ## License
 
